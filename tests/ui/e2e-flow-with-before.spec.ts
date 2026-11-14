@@ -6,8 +6,7 @@ import {
   existingOrderMock,
   nonExistingOrderMock,
   serverErrorOrderMock,
-  successfulOrderCreationMock,
-  successfulOrderMock,
+  successfulOrderCreationMock
 } from '../mock/order-mocks'
 
 let loginPage: LoginPage
