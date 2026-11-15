@@ -11,7 +11,7 @@ test.skip('signIn button disabled when password is less than 8 characters', asyn
   await expect(loginPage.signInButton).toBeDisabled()
 })
 
-test.skip('signIn with invalid credentials should lead to an error', async ({ page }) => {
+test('signIn with invalid credentials should lead to an error', async ({ page }) => {
   const loginPage = new LoginPage(page)
   await loginPage.open()
   await loginPage.usernameField.fill(faker.lorem.word(2))
@@ -21,7 +21,7 @@ test.skip('signIn with invalid credentials should lead to an error', async ({ pa
   await expect(loginPage.authError).toBeVisible()
 })
 
-test.skip('login with correct credentials and verify order creation page', async ({ page }) => {
+test('login with correct credentials and verify order creation page', async ({ page }) => {
   const loginPage = new LoginPage(page)
   await loginPage.open()
   const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
@@ -29,7 +29,7 @@ test.skip('login with correct credentials and verify order creation page', async
   // verify at least few elements on the order creation page
 })
 
-test.skip('Check error on order creation', async ({ page }) => {
+test('Check error on order creation', async ({ page }) => {
   const loginPage = new LoginPage(page)
   await loginPage.open()
   const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
