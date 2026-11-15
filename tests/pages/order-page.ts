@@ -24,6 +24,9 @@ export class OrderPage {
   readonly orderServerError: Locator
   readonly orderServerErrorText: Locator
 
+  readonly usernameInputError: Locator
+  readonly phoneInputError: Locator
+
   // add more locators here
 
   constructor(page: Page) {
@@ -45,5 +48,7 @@ export class OrderPage {
     this.orderStatusOpen = page.getByTestId('status-item-0')
     this.orderServerError = page.getByTestId('serverError-title')
     this.orderServerErrorText = page.getByTestId('serverError-description')
+    this.usernameInputError = page.getByTestId('username-input-error')
+    this.phoneInputError = page.getByTestId('phone-input-error')
   }
 }
