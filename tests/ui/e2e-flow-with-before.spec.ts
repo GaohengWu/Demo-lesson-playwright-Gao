@@ -68,6 +68,24 @@ test('Check error on order creation', async ({}) => {
   await expect(orderCreationPage.phoneError).toBeVisible()
 })
 
+test.only('Check that Name and Phone fields are mandatory', async ({}) => {
+  // implement test
+  const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
+  await orderCreationPage.userName.fill('Gao')
+  await orderCreationPage.userName.clear()
+
+  //Name is mandatory
+  await expect(orderCreationPage.usernameInputError).toBeVisible()
+  await expect(orderCreationPage.usernameInputError).toHaveText('The field must be filled in.')
+
+  await orderCreationPage.phoneNumber.fill('123456789')
+  await orderCreationPage.phoneNumber.clear()
+
+  //Phone is mandatory
+  await expect(orderCreationPage.phoneInputError).toBeVisible()
+  await expect(orderCreationPage.phoneInputError).toHaveText('The field must be filled in.')
+})
+
 test('Check logout function', async ({}) => {
   // Log in
   const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
